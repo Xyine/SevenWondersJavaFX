@@ -13,19 +13,19 @@ public class Main {
     
 
     public Main(){
-        this.players =
+        this.players = new ArrayList<>();
         this.wonders = new ArrayList<>();
         scanner =  new Scanner(System.in);
 
     }
     public void fillWonders(){
-        Wonder Alexendrie = new Alexendrie() ;
-        Wonder Ephese = new Ephese();
-        Wonder Babylone = new Babylone();
-        Wonder Rhodes = new Rhodes();
-        Wonder Halicarnasse = new Halicarnasse();
-        Wonder Olympie = new Olympie();
-        Wonder Gizeh = new Gizeh();
+        Wonder Alexendrie = new Alexendrie(0,5,EnumCartes.ALEXANDRIE) ;
+        Wonder Ephese = new Ephese(0,5,EnumCartes.EPHESOS);
+        Wonder Babylone = new Babylone(0,5,EnumCartes.BABYLON);
+        Wonder Rhodes = new Rhodes(0,0,EnumCartes.RHODES);
+        Wonder Halicarnasse = new Halicarnasse(0,0,EnumCartes.ALIKARNASS);
+        Wonder Olympie = new Olympie(0,0,EnumCartes.OLYMPIE);
+        Wonder Gizeh = new Gizeh(0,0,EnumCartes.GIZEH);
         this.availableWonders.add(Alexendrie);
         this.availableWonders.add(Ephese);
         this.availableWonders.add(Babylone);
@@ -59,7 +59,7 @@ public class Main {
             System.out.println("Choisissez votre merveille! (Alexandrie, Ephese, Babylone, Rhodes, Halicarnasse, Olympie, Gizeh)");
             String wonderName = scanner.nextLine();
             if (doesWonderExist(wonderName)){
-                Player player = new Player(0,0,name);
+                Player player = new Player(0,0,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,name);
                 Wonder wonder = availableWonders.remove(getWonder(wonderName));
                 players.add(player);
                 wonders.add(wonder);

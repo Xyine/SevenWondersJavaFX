@@ -13,4 +13,7 @@ public class MilitaryCard extends Card {
     public void play() {
         // Ajouter les points de militarie au joueur
     }
+    public void applyBouclier(Player player) {
+        player.addBouclier();
+    }
 }

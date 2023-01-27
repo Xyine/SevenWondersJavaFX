@@ -1,8 +1,8 @@
 public class Etage extends Wonder {
     private int EScore;
-    public WEtage() {}
-    public WEtage(String Name, int NEtage, int MaxNEtage, int EScore){
-        super(Name,NEtage,MaxNEtage);
+
+    public WEtage(String Name, int nEtage, int maxnEtage, int EScore){
+        super(Name,nEtage,maxnEtage);
         this.EScore = EScore;
     }
 
@@ -16,7 +16,7 @@ public class Etage extends Wonder {
     @Override
     public void Play() {
 
-        switch (NEtage) {
+        switch (nEtage) {
             case 1 :
                 EScore = 2;
                 break;
@@ -33,12 +33,12 @@ public class Etage extends Wonder {
                 EScore = 3;
                 break;
             default :
-                NEtage = MaxNEtage;
+                nEtage = maxnEtage;
         }
-        if (NEtage>MaxNEtage){
-            NEtage = MaxNEtage;
+        if (nEtage>maxnEtage){
+            nEtage = maxnEtage;
         }
-        if (NEtage== MaxNEtage){
+        if (nEtage== maxnEtage){
             System.out.println("Partie terminée");
         }
     }

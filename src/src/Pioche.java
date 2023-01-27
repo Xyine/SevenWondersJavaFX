@@ -3,12 +3,17 @@ import java.util.List;
 
 
 public class Pioche {
-    private List<Card> pioche ;
-    int number;
+    private List<Card> pioche = new ArrayList<>();
+    EnumCartes formation;
 
 
     public Pioche(EnumCartes formation){
-        this.pioche = new ArrayList<>();
+        this.formation = formation;
+        initPioche();
+    }
+
+
+    public void initPioche(){
         for (int i = 0; i < formation.coin; i++) {
             this.pioche.add(new ResourceCard("Gold",TypeRessources.GOLD));
         }
@@ -118,24 +123,22 @@ public class Pioche {
         this.pioche.add(new MilitaryCard("bouclier2corne2",2));
     }*/
 
-    public int getNumber() {
-        return number;
+    public Card getCard() {
+        if (pioche.isEmpty())
+            initPioche();
+        return pioche.remove(0);
     }
-    public void setNumber (int number){
-        this.number = number;
+
+
+    public void setPioche(List<Card> pioche) {
+        this.pioche = pioche;
     }
-
-        public Card getCarte(Card carte) {
-            if (getNumber() <= 60)
-                carte = pioche.get(getNumber());
-                setNumber(getNumber()+1);
-
-            return carte;
-        }
-
-
-
-
 
 }
-    ;
+
+
+
+
+
+
+

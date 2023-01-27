@@ -1,7 +1,7 @@
 public class Gizeh extends Wonder{
-    Gizeh(){
+    Gizeh(int nEtage,int maxnEtage, EnumCartes formation){
+        super(nEtage,maxnEtage,formation, formation.name());
         numberEtageConstruit = 0;
-        Name = "Gizeh";
     }
 
     @Override

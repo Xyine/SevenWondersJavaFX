@@ -1,0 +1,191 @@
+@startuml
+abstract class Card{
+     - String Type;
+        - int Score;
+        - int CNumber;
+        - String Color;
+        - String Effect;
+        - String Place;
+        - String name;
+
+    + String getType()
+    + void setType (String Type)
+    + int getCNumber()
+    + void setCNumber (int CNumber)
+    + String getColor()
+    + void setColor (String Color)
+    + String getEffect()
+    + void setEffect (String Effect)
+    + String getPlace()
+    + void setPlace (String Place)
+    + void play()
+
+}
+class Player{
+    # Wonder wonder;
+    # int pointVictoire;
+    - int bouclier;
+    # int etage;
+    - boolean jetonUrbanism;
+    - boolean jetonArtisanat;
+    - boolean jetonJoaillerie;
+    - boolean jetonScience;
+    - boolean jetonPropagande;
+    - boolean jetonArchitecture;
+    - boolean jetonEconomie;
+    - boolean jetonIngenierie;
+    - boolean jetonTactique;
+    - boolean jetonDecoration;
+    - boolean jetonPolitique;
+    - boolean jetonStrategie;
+    - boolean jetonEducation;
+    - boolean jetonCulture;
+    # int carte;
+    - String name;
+
+     + void setWonder(Wonder wonder)
+     + void piocher()
+     + void construire()
+         + void guerre()
+         + void acheterJetonScience()
+         + void addVictoryPoints(int points)
+         + void addBouclier()
+         + boolean isJetonUrbanism()
+         + void setJetonUrbanism(boolean jetonUrbanism)
+         + boolean isJetonArtisanat()
+         + void setJetonArtisanat(boolean jetonArtisanat)
+         + boolean isJetonJoaillerie()
+         + void setJetonJoaillerie(boolean jetonJoaillerie)
+         + boolean isJetonScience()
+         + void setJetonScience(boolean jetonScience)
+         + boolean isJetonPropagande()
+         + void setJetonPropagande(boolean jetonPropagande)
+         + boolean isJetonArchitecture()
+         + void setJetonArchitecture(boolean jetonArchitecture)
+         + boolean isJetonEconomie()
+         + void setJetonEconomie(boolean jetonEconomie)
+         + boolean isJetonIngenierie()
+         + void setJetonIngenierie(boolean jetonIngenierie)
+         + boolean isJetonTactique()
+         + void setJetonTactique(boolean jetonTactique)
+         + boolean isJetonDecoration()
+         + void setJetonDecoration(boolean jetonDecoration)
+         + boolean isJetonPolitique()
+         + void setJetonPolitique(boolean jetonPolitique)
+         + boolean isJetonStrategie()
+         + void setJetonStrategie(boolean jetonStrategie)
+         + boolean isJetonEducation()
+         + void setJetonEducation(boolean jetonEducation)
+         + boolean isJetonCulture()
+         + void setJetonCulture(boolean jetonCulture)
+}
+class RessourceCard{
+    - TypeRessources type;
+    + void play()
+    }
+enum TypesRessources{
+        GOLD,
+        WOOD,
+        STONE,
+        BRICK,
+        GLASS,
+        SCROLL;
+
+}
+class ScienceCard{
+    + void play()
+}
+class BlueCard{
+    + void applyVictoryPoints(Player player)
+}
+class MilitaryCard{
+    + void applyBouclier(Player player)
+    + void Guerre+()
+}
+class Pioche{
+- List<Card> pioche = new ArrayList<>()
+}
+enum EnumCartes{
+ RHODES(2, 2, 2,2, 2, 2, 2, 1, 1, 2, 2, 2, 1, 2),
+    ALIKARNASS(3,2,2,2,2,1,1,1,2,2,2,2,1,2),
+    GIZEH(3,2,1,2,2,2,1,2,1,2,3,2,0,2),
+    EPHESOS(3,2,2,2,2,2,1,2,2,1,2,2,1,1),
+    OLYMPIE(3,2,1,2,2,2,1,1,2,1,3,2,1,2),
+    BABYLON(3,1,2,2,2,2,2,2,1,2,2,2,1,1),
+    ALEXANDRIE(4,2,2,2,1,2,2,1,1,2,2,2,1,1),
+    PIOCHE(6,4,4,4,4,4,4,4,4,4,8,4,2,4);
+    int coin;
+    int stone;
+    int wood;
+    int brick;
+    int glass;
+    int scroll;
+    int wheel;
+    int compass;
+    int tablet;
+    int blue3;
+    int blueCat;
+    int war;
+    int warDouble;
+    int warSingle;
+}
+class Wonder{
+ # int numberEtageConstruit
+ # int etageScore
+ - Pioche pioche
+ - EnumCartes formation
+
+ + int getNumberEtageConstruit()
+ + int getEtageScore()
+ + void max()
+ + void effetSpecial(){}
+ + Pioche getPioche()
+}
+class Etage{
+ + int getEScore()
+ + void setEScore(int EScore)
+ + void Play()
+}
+class Alexendrie
+class Ephese
+class Gizeh
+class Halicarnasse
+class Olympie
+class Rhodes
+class Main{
+ public List<Player> players
+ public List<Wonder> wonders
+ List<Wonder> availableWonders
+ private int numberOfPlayers
+ Scanner scanner
+
+ + void fillWonders()
+ + void game()
+ + void initializePlayersAndWonders()
+ + boolean isGameFinished()
+ + void playTurn()
+ + static void main(String[] args)
+ + boolean doesWonderExist(String name)
+ + int getWonder(String name)
+}
+BlueCard <|-- Card
+RessourceCard <|-- Card
+MilitaryCard<|-- Card
+ScienceCard<|-- Card
+Alexendrie<|-- Wonder
+Halicarnasse<|-- Wonder
+Baylone<|-- Wonder
+Ephese<|-- Wonder
+Gizeh<|-- Wonder
+Olympie<|-- Wonder
+Rhodes<|-- Wonder
+Etage<|-- Wonder
+Player-- Wonder
+Pioche-- Player
+RessourceCard-- Player
+MilitaryCard-- Player
+ScienceCard-- Player
+BlueCard-- Player
+Main-- Player
+
+@enduml

@@ -1,7 +1,8 @@
 public class Ephese extends Wonder{
-    Ephese(){
+    Ephese(int nEtage,int maxnEtage, EnumCartes formation){
+        super(nEtage,maxnEtage,formation, formation.name());
         numberEtageConstruit = 0;
-        Name = "Ephese";
+
     }
 
     @Override

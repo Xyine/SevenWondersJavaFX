@@ -15,5 +15,8 @@ public class BlueCard extends Card{
     public void play() {
 
     }
+    public void applyVictoryPoints(Player player) {
+        player.addVictoryPoints(victoryPoints);
+    }
 
 }
